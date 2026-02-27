@@ -1,10 +1,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-image: url("imagen.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background: #111;
   color: white;
   text-align: center;
 }
@@ -21,7 +18,7 @@ body {
 
 .formulario {
   padding: 20px;
-  background: rgba(0, 0, 0, 0.7);
+  background: #222;
 }
 
 input {
@@ -46,7 +43,7 @@ table {
   width: 90%;
   margin: 20px auto;
   border-collapse: collapse;
-  background: rgba(0, 0, 0, 0.7);
+  background: #222;
 }
 
 th, td {
@@ -55,5 +52,5 @@ th, td {
 }
 
 th {
-  background: #222;
+  background: #333;
 }
