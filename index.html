@@ -3,17 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Personeria oculta</title>
+<title>Competencia</title>
 <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
 
-<audio autoplay loop>
-<source src="musica.mp3" type="audio/mpeg">
-</audio>
+<div class="imagen-container">
+  <img src="imagen2.jpeg" class="imagen-grande">
+</div>
 
-<div class="contenido"></div>
+<div class="formulario">
+  <h2>Participar</h2>
+  <input type="text" id="nombre" placeholder="Tu nombre">
+  <input type="text" id="curso" placeholder="Tu curso">
+  <input type="number" id="cantidad" placeholder="¿Cuántos encontraste?">
+  <button onclick="agregar()">Reportar</button>
+</div>
+
+<h2 class="titulo-tabla">Ranking</h2>
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Curso</th>
+      <th>Encontrados</th>
+    </tr>
+  </thead>
+  <tbody id="tabla-body"></tbody>
+</table>
+
+<script>
+let participantes = [];
+
+function agregar() {
+  let nombre = document.getElementById("nombre").value;
+  let curso = document.getElementById("curso").value;
+  let cantidad = parseInt(document.getElementById("cantidad").value);
+
+  if(nombre === "" || curso === "" || isNaN(cantidad)) {
+    alert("Completa todos los campos");
+    return;
+  }
+
+  participantes.push({nombre, curso, cantidad});
+  actualizarTabla();
+}
+
+function actualizarTabla() {
+  participantes.sort((a, b) => b.cantidad - a.cantidad);
+
+  let cuerpo = document.getElementById("tabla-body");
+  cuerpo.innerHTML = "";
+
+  participantes.forEach((p, index) => {
+    cuerpo.innerHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${p.nombre}</td>
+        <td>${p.curso}</td>
+        <td>${p.cantidad}</td>
+      </tr>
+    `;
+  });
+}
+</script>
 
 </body>
 </html>
