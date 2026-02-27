@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("imagen.jpeg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenido {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: white;
+  font-size: 6vw;
+  text-shadow: 2px 2px 10px black;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 8vw;
+  }
+}
